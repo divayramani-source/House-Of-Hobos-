@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Lilita+One&family=Fredoka:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────── ROOT THEME ───────── */
+@layer base {
+  :root {
+    --background: 48 100% 96%;
+    --foreground: 270 60% 15%;
+
+    --primary: 16 95% 55%;
+    --secondary: 285 75% 58%;
+    --accent: 155 70% 42%;
+
+    --border: 38 60% 72%;
+    --ring: 16 95% 55%;
+
+    --radius: 1.25rem;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+    outline-color: hsl(var(--ring) / 0.5);
+    transition: all 0.2s ease;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Fredoka', sans-serif;
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Lilita One', cursive;
+    letter-spacing: 1px;
+  }
+}
+
+/* ───────── HERO TEXT OUTLINE (CLEAN VERSION) ───────── */
+.text-outline {
+  text-shadow:
+    3px 3px 0 hsl(270 60% 15%),
+    -3px -3px 0 hsl(270 60% 15%),
+    3px -3px 0 hsl(270 60% 15%),
+    -3px 3px 0 hsl(270 60% 15%);
+}
+
+/* ───────── BUTTON SYSTEM ───────── */
+.funky-btn {
+  border: 2px solid hsl(270 60% 15%);
+  box-shadow: 5px 5px 0 hsl(270 60% 15%);
+  border-radius: 999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.funky-btn:hover {
+  transform: translate(-3px, -3px) scale(1.02);
+  box-shadow: 8px 8px 0 hsl(270 60% 15%);
+}
+
+.funky-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 hsl(270 60% 15%);
+}
+
+/* ───────── CARD SYSTEM ───────── */
+.retro-card {
+  background: white;
+  border: 3px solid hsl(270 60% 15%);
+  border-radius: 22px;
+  box-shadow: 6px 6px 0px hsl(270 60% 15%);
+}
+
+.retro-card:hover {
+  transform: translate(-4px, -4px) scale(1.01);
+  box-shadow: 10px 10px 0px hsl(270 60% 15%);
+}
+
+/* ───────── POLAROID STYLE ───────── */
+.polaroid {
+  background: white;
+  padding: 12px 12px 44px;
+  border: 2px solid #e5e5e5;
+  box-shadow:
+    5px 5px 0px hsl(270 60% 15% / 0.25),
+    0 10px 30px rgba(0,0,0,0.15);
+}
+
+.polaroid:hover {
+  transform: scale(1.05);
+}
+
+/* ───────── BACKGROUNDS ───────── */
+.groovy-bg {
+  background-color: hsl(48 100% 96%);
+  background-image:
+    radial-gradient(circle at 20% 20%, hsl(285 75% 58% / 0.07) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, hsl(16 95% 55% / 0.07) 0%, transparent 50%);
+}
+
+.section-soft {
+  background: linear-gradient(
+    to bottom,
+    hsl(48 100% 96%),
+    hsl(48 80% 92%)
+  );
+}
+
+.hippie-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(16 95% 55%) 0%,
+    hsl(285 75% 58%) 50%,
+    hsl(155 70% 42%) 100%
+  );
+}
+
+/* ───────── HOVER EFFECTS ───────── */
+.glow-hover:hover {
+  box-shadow:
+    0 0 20px hsl(285 75% 58% / 0.4),
+    0 0 40px hsl(16 95% 55% / 0.3);
+}
+
+/* ───────── ROTATION HELPERS ───────── */
+.rotate-left  { transform: rotate(-3deg); }
+.rotate-right { transform: rotate(3deg); }
+
+/* ───────── SCROLLBAR ───────── */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(48 100% 90%);
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(285 75% 58% / 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(16 95% 55% / 0.8);
+}
+
+/* ───────── FLOAT ANIMATION ───────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}

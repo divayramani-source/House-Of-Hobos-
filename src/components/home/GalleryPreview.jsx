@@ -1,53 +1,79 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ArrowRight } from "lucide-react";
+
+const images = [
+  {
+    src: "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/8961aef06_hobos3.jpg",
+    rotation: "rotate-slight-left",
+  },
+  {
+    src: "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/087cf703a_hobos7.jpg",
+    rotation: "rotate-slight-right",
+  },
+  {
+    src: "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/a0e87a725_hobos4.jpg",
+    rotation: "rotate-medium-left",
+  },
+  {
+    src: "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/b557b7ac3_hobos2.jpg",
+    rotation: "rotate-slight-right",
+  },
+];
+
 export default function GalleryPreview() {
-  const images = [
-    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/29163b745_hobos6.jpg",
-  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/8961aef06_hobos3.jpg', caption: 'outdoor garden', rotation: 'rotate-slight-left', border: 'border-primary' },
-  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/a0e87a725_hobos4.jpg', caption: 'mural art', rotation: 'rotate-medium-left', border: 'border-destructive' },
-  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/b557b7ac3_hobos2.jpg', caption: 'indoor seating', rotation: 'rotate-slight-right', border: 'border-accent' },
-  ];
-
   return (
-    <section className="bg-gradient-to-b from-[#f5efe6] to-[#efe6d9] py-24 px-4">
+    <section
+      className="py-20 md:py-28 px-4"
+      style={{ background: "hsl(285 75% 58% / 0.08)" }}
+    >
+      <div className="max-w-6xl mx-auto">
 
-      {/* TITLE */}
-      <div className="text-center mb-16">
-        <p className="text-orange-500 font-semibold tracking-wide">
-          PEEK INSIDE 📸
-        </p>
+        {/* TITLE */}
+        <div className="text-center mb-16">
+          <span className="font-handwritten text-primary text-3xl md:text-4xl block mb-3 rotate-slight-right inline-block">
+            peek inside 📷
+          </span>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-[#2a0f3f] mt-2">
-          Our Space ✨
-        </h2>
-      </div>
+          <h2 className="font-heading text-5xl md:text-7xl text-foreground">
+            Our Space ✦
+          </h2>
+        </div>
 
-      {/* POLAROID IMAGES ONLY */}
-      <div className="flex flex-wrap justify-center items-center gap-10 max-w-6xl mx-auto">
+        {/* POLAROID GRID (NO TEXT NOW) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 mb-12">
+          {images.map((img, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 50, rotate: i % 2 === 0 ? -8 : 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.6, type: "spring" }}
+              whileHover={{ scale: 1.07, rotate: 0, zIndex: 10 }}
+              className={`polaroid ${img.rotation} hover:rotate-0 transition-transform duration-300`}
+            >
+              <img
+                src={img.src}
+                alt="gallery"
+                className="w-full aspect-square object-cover"
+              />
+            </motion.div>
+          ))}
+        </div>
 
-        {images.map((src, i) => (
-          <div
-            key={i}
-            className="bg-white p-3 shadow-xl transition duration-300 hover:scale-105"
-            style={{
-              transform: `rotate(${i % 2 === 0 ? "-6deg" : "6deg"})`,
-            }}
+        {/* BUTTON */}
+        <div className="text-center">
+          <Link
+            to="/gallery"
+            className="inline-flex items-center gap-3 funky-btn bg-secondary text-secondary-foreground px-8 py-4 rounded-full font-body font-semibold text-lg border-2 border-foreground shadow-[4px_4px_0_hsl(270_60%_15%)] group"
           >
-            <img
-              src={src}
-              alt="gallery"
-              className="w-60 h-60 object-cover rounded-md"
-            />
-          </div>
-        ))}
+            📸 See Full Gallery
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
 
       </div>
-
-      {/* BUTTON */}
-      <div className="text-center mt-16">
-        <button className="bg-purple-500 text-white px-8 py-3 rounded-full shadow-lg hover:scale-105 transition">
-          📸 See Full Gallery →
-        </button>
-      </div>
-
     </section>
   );
 }

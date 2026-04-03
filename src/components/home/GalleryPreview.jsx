@@ -1,9 +1,10 @@
 export default function GalleryPreview() {
   const images = [
     "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/29163b745_hobos6.jpg",
-    "https://images.unsplash.com/photo-1509042239860-f550ce710b93",
-    "https://images.unsplash.com/photo-1514933651103-005eec06c04b",
-    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/book_nook.jpg",
+    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/mural.jpg",
+    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/indoor.jpg",
+    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/hobos_extra.jpg",
   ];
 
   return (
@@ -20,13 +21,13 @@ export default function GalleryPreview() {
         </h2>
       </div>
 
-      {/* POLAROID STYLE */}
+      {/* POLAROID IMAGES ONLY */}
       <div className="flex flex-wrap justify-center items-center gap-10 max-w-6xl mx-auto">
 
         {images.map((src, i) => (
           <div
             key={i}
-            className="bg-white p-3 pb-6 shadow-xl rotate-[-2deg] hover:rotate-0 transition duration-300"
+            className="bg-white p-3 shadow-xl transition duration-300 hover:scale-105"
             style={{
               transform: `rotate(${i % 2 === 0 ? "-6deg" : "6deg"})`,
             }}
@@ -36,13 +37,6 @@ export default function GalleryPreview() {
               alt="gallery"
               className="w-60 h-60 object-cover rounded-md"
             />
-
-            <p className="text-center mt-3 text-sm text-[#2a0f3f] font-medium">
-              {i === 0 && "Outdoor Garden 🌿"}
-              {i === 1 && "Book Nook 📚"}
-              {i === 2 && "Mural Art 🎨"}
-              {i === 3 && "Indoor Vibes ☕"}
-            </p>
           </div>
         ))}
 

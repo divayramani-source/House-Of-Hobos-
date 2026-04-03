@@ -23,7 +23,7 @@ export default function Footer() {
 
           {/* SOCIAL */}
           <a
-            href="https://instagram.com/houseofhobos"
+            href="https://www.instagram.com/house_of_hobos/"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-pink-400 hover:text-pink-300 transition mt-2"

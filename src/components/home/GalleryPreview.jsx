@@ -1,10 +1,9 @@
 export default function GalleryPreview() {
   const images = [
     "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/29163b745_hobos6.jpg",
-    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/book_nook.jpg",
-    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/mural.jpg",
-    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/indoor.jpg",
-    "https://media.base44.com/images/public/user_699e9901b8286d49d6803418/hobos_extra.jpg",
+  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/8961aef06_hobos3.jpg', caption: 'outdoor garden', rotation: 'rotate-slight-left', border: 'border-primary' },
+  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/a0e87a725_hobos4.jpg', caption: 'mural art', rotation: 'rotate-medium-left', border: 'border-destructive' },
+  { src: 'https://media.base44.com/images/public/user_699e9901b8286d49d6803418/b557b7ac3_hobos2.jpg', caption: 'indoor seating', rotation: 'rotate-slight-right', border: 'border-accent' },
   ];
 
   return (
